@@ -9,4 +9,22 @@ F(n) = -F(-n) при n < 0.
 
 Формат вывода: программа должна печатать только одно число - ответ на задачу.
 """
-print(6)
+import sys
+sys.setrecursionlimit(1000000000)
+
+f = {0: 1}
+def Fibs(n):
+    if n in f:
+        return f[n]
+    if n < 0:
+        f[n] = -Fibs(-n)
+        return f[n]
+    f[n] = 2 * Fibs(1 - n) + 3 * Fibs(n - 1) + 2
+    return f[n]
+
+a= Fibs(50)
+b = 0
+while a!= 0:
+    b += a% 10
+    a //= 10
+print(b)

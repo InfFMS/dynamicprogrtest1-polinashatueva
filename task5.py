@@ -6,3 +6,14 @@ F(n) = F(n - 1) + n * 2, если n >= 4.
 
 Формат вывода: программа должна печатать только одно число - ответ на задачу.
 """
+
+import sys
+sys.setrecursionlimit(1000000000)
+
+
+def fib(n):
+    if n<4:
+        return 1
+    else:
+        return fib(n - 1) + n *2
+print(fib(2025))
