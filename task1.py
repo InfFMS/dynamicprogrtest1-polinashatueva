@@ -6,4 +6,22 @@ F(n) = n - 7 + F(n - 21), если n > 10
 
 Формат вывода: программа должна печатать только одно число - ответ на задачу.
 """
-print(17274)
+
+
+
+
+import sys
+sys.setrecursionlimit(100000000)
+f = {}
+def Fibs(n):
+    if n in f:
+        return f[n]
+    if n < 11:
+        f[n] = n
+        return f[n]
+    f[n] = n - 7 + Fibs(n - 21)
+    return f[n]
+a1 = Fibs(185734)
+a2= Fibs(185650)
+a3=Fibs(40)
+print(int((Fibs(185734) - Fibs(185650))/Fibs(40)))
